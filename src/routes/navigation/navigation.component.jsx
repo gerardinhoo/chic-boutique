@@ -1,5 +1,7 @@
 import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
+import './navigation.styles.scss';
 
 
 const Navigation = () => {
@@ -7,12 +9,13 @@ const Navigation = () => {
      <Fragment>
         <div className='navigation'>
          <Link className="logo-container" to="/">
-           <div>Logo</div>
+           <img src={logo} className='logo' />
          </Link>
-         <Link className="logo-container" to="/shop">
-           <div>SHOP</div>
-         </Link>
-         {/* <h1>I am the navigation bar</h1> */}
+         <div className='nav-links-container'>
+            <Link className="nav-link" to="/shop">
+              SHOP
+            </Link>
+         </div>
        </div>
        <Outlet />
      </Fragment>
