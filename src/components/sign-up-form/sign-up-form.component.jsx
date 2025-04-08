@@ -4,6 +4,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
+import FormInput from '../form-input/form-input.component';
 
 const displayFormFields = {
   displayName: '',
@@ -11,7 +12,6 @@ const displayFormFields = {
   password: '',
   confirmPassword: '',
 };
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const SignupForm = () => {
   const [formFields, setFormFields] = useState(displayFormFields);
@@ -58,35 +58,32 @@ const SignupForm = () => {
     <div>
       <h1>Sign up with your email and password</h1>
       <form onSubmit={handleSubmit}>
-        <label>Display Names</label>
-        <input
+        <FormInput
+          label='Display Names'
           type='text'
           required
           onChange={handleChange}
           name='displayName'
           value={displayName}
         />
-
-        <label>Email</label>
-        <input
+        <FormInput
+          label='Email'
           type='email'
           required
           onChange={handleChange}
           name='email'
           value={email}
         />
-
-        <label>Password</label>
-        <input
+        <FormInput
+          label='Password'
           type='password'
           required
           onChange={handleChange}
           name='password'
           value={password}
         />
-
-        <label>Confirm Password</label>
-        <input
+        <FormInput
+          label='Confirm Password'
           type='password'
           required
           onChange={handleChange}
